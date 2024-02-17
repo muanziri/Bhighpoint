@@ -4,7 +4,8 @@
   "description": "Byiringiro's work",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "author": "Munaziri bienaime",
   "license": "ISC",
