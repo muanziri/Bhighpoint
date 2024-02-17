@@ -11,5 +11,8 @@ const checkAuthenticated = (req, res, next) => {
 app.get('/user',checkAuthenticated,(req,res)=>{
    res.json(req.user)
 })
+app.get('/',(req,res)=>{
+    res.json({'status':'now server is on'})
+})
 
 module.exports= app
