@@ -19,9 +19,7 @@ const otherRoutes =require("./usualRoutes/idex")
 // App starts here
  const app=Express();
  const DB =process.env.MONGO_DB_CONNECTION_LINK;
-mongoose
-.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then((results) => { console.log("connected to the database");})
-.catch((err) => {console.warn(err);});
+
 const PORT=process.env.PORT||3000
 app.use(logger('dev'));
 app.use(session({
@@ -37,4 +35,6 @@ app.use(GoogleAuthenticationRoutes)
 app.use(FacebookAuthenticate)
 app.use(otherRoutes)
 
- app.listen(PORT,()=>{console.log('listenning on port '+PORT)})
+mongoose
+.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then((results) => {  app.listen(PORT,()=>{console.log('listenning on port '+PORT)}); console.log("connected to the database");})
+.catch((err) => {console.warn(err);});
